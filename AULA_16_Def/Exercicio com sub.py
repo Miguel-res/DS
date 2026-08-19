@@ -1,6 +1,20 @@
 import os
 os.system("cls")
+
+def inicializar() -> None:
+    print("criando dicionario...")
+    funcionario = {
+    "Jonas": "pedreiro"
+    }
+    print(f"Dicionario de profições criado{funcionario}")
+
+def modificar_value() -> None:
+    profissao = input("Qual a profissão: ")
+    nome = input("qual o nome do cidadão(Tem que estar no Dicionario): ")
+    funcionario[nome] = profissao
+    print(funcionario)
 funcionario = dict()
+
 while True:
     print("""
 0 - Sair
@@ -14,24 +28,15 @@ while True:
 """)
 
     escolha = int(input("Escolha as opções: "))
-    if escolha >= 0 and escolha <= 8:
+    if escolha >= 0 and escolha <= 7:
         match escolha:
             case 0:
                 print("desligando programa")
                 break
             case 1:
-                print("criando dicionario...")
-                funcionario = {
-                    "Jonas": "pedreiro"
-                }
-                print(f"Dicionario de profições criado{funcionario}")
+                inicializar()
             case 2:
-                
-                profissao = input("Qual a profissão: ")
-                nome = input("qual o nome do cidadão(Tem que estar no Dicionario): ")
-                funcionario[nome] = profissao
-                print(funcionario)
-                
+                modificar_value()
             case 3:
                 
                 nome = input("Qual o nome do Cidadão?: ")
@@ -55,3 +60,5 @@ while True:
             case 7:
                 for k, v in funcionario.items():
                     print(f"Keys: {k} Values: {v}")
+    else:
+        print("Escolha uma das opções")
